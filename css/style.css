@@ -1,0 +1,100 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  font-family: Verdana, sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: #000;
+  background: #cccccc; }
+
+h1 {
+  font-size: 2.5rem;
+  color: #000;
+  font-weight: normal;
+  text-align: center; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: auto; }
+
+p {
+  margin-bottom: 1rem; }
+
+a {
+  color: blue;
+  text-decoration: none; }
+
+a:hover {
+  color: #000; }
+
+.btn {
+  border: 0;
+  padding: 1.5rem 2rem;
+  margin: 0;
+  font-size: 1.4rem;
+  background: darkblue;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 1rem;
+  line-height: normal;
+  width: 15rem; }
+  .btn:hover {
+    opacity: .7; }
+  .btn:focus {
+    border: none; }
+  @media screen and (max-width: 1024px) {
+    .btn {
+      width: 100%; } }
+
+main {
+  min-height: 95vh;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column; }
+  main #box {
+    background: aliceblue;
+    padding: 3rem;
+    width: 40%;
+    border: 1px darkgrey solid;
+    border-radius: 5px;
+    text-align: center; }
+    @media screen and (max-width: 1024px) {
+      main #box {
+        width: 90%; } }
+    main #box .container {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-around; }
+      @media screen and (max-width: 1024px) {
+        main #box .container {
+          flex-direction: column; } }
+
+#results {
+  width: 90%; }
+  #results .description {
+    text-align: justify; }
+  #results .link {
+    margin-bottom: 2rem; }
+
+footer {
+  background: #000;
+  text-align: center;
+  color: #fff;
+  padding: 1rem 0;
+  min-height: 5vh; }

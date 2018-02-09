@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wikipedia viewer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <div id="box">
+              <div class="form-group">
+                  <h1>Wikipedia viewer</h1>
+                <label for="searchText">Search for:</label>
+                <input type="text" class="form-control" id="searchText" value="" name="searchText">
+              </div>
+                <div class="container">
+                    <button id="search" class="btn">Search</button>
+                </div>
+            <a href="https://en.wikipedia.org/wiki/Special:Random">Random</a>
+        </div>
+        <div id="results">
+        </div>
+    </main>
+    <footer>
+        &copy; 2018 Copyright by Krzysztof Paździora
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function() {
+
+            $("#searchText").on("keyup", function() {
+                var search = $("#searchText").val();
+                getResults(search);
+            });
+
+            $("#search").on("click", function() {
+                var search = $("#searchText").val();
+                getResults(search);
+            });
+        });
+        function getResults(search) {
+
+            $.getJSON(
+                "https://en.wikipedia.org/w/api.php?action=opensearch&search="+search+"&limit=25&namespace=0&format=json&callback=?",
+                function(json) {
+                    var html = '';
+                    for (i=0;i<json[1].length;i++)
+                    {
+                        html += '<div class="title"><h2>'+json[1][i]+'</h2></div>';
+                        html += '<div class="description">'+json[2][i]+'</div>';
+                        html += '<div class="link"><a href="'+json[3][i]+'" title="'+json[1][i]+'" target="_blank">'+json[3][i]+'</a></div>';
+                    }
+
+                    $("#results").html(html);
+                }
+            );
+        }
+    </script>
+ <!--  <script src="https://gitcdn.link/repo/freeCodeCamp/testable-projects-fcc/master/build/bundle.js"></script>-->
+</body>
+</html>
