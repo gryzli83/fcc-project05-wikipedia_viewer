@@ -23,7 +23,6 @@ h1{
   color: #000;
   font-weight: normal;
   text-align: center;
-
 }
 img{
   max-width: 100%;
@@ -101,6 +100,7 @@ main{
   }
   & .link{
     margin-bottom: 2rem;
+    word-wrap: break-word;
   }
 }
 footer{

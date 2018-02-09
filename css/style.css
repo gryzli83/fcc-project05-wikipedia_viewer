@@ -90,7 +90,8 @@ main {
   #results .description {
     text-align: justify; }
   #results .link {
-    margin-bottom: 2rem; }
+    margin-bottom: 2rem;
+    word-wrap: break-word; }
 
 footer {
   background: #000;
